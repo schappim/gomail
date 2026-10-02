@@ -1,0 +1,19 @@
+# build output
+bin/
+dist/
+
+# secrets and real configs — never commit these
+app_specific_pw.txt
+*_pw.txt
+*password*.txt
+config.yaml
+config.yml
+*.local.yaml
+*.local.yml
+.env
+.env.*
+
+# downloaded mail
+*.eml
+
+.DS_Store

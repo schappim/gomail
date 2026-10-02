@@ -1,0 +1,42 @@
+# gomail configuration
+#
+# One profile per Gmail / Google Workspace account. Use an app password
+# (https://myaccount.google.com/apppasswords, needs 2-Step Verification), never
+# your real password. Keep this file private (gomail writes it with mode 0600).
+
+default_profile: personal
+
+profiles:
+  personal:
+    email: you@gmail.com
+    name: Your Name
+    # Pick ONE way to supply the app password:
+    password: "abcd efgh ijkl mnop"
+    # password_env: GOMAIL_PERSONAL_PASSWORD
+    # password_cmd: security find-generic-password -s gomail -a you@gmail.com -w
+    # aliases: [you@yourdomain.com]      # other "Send mail as" addresses
+    default_signature: full
+    signatures:
+      full:
+        description: Name, title and mobile
+        text: |
+          Your Name
+          Founder, Example Co
+          +61 400 000 000
+        html: |
+          <b>Your Name</b><br>Founder, Example Co<br><a href="tel:+61400000000">+61 400 000 000</a>
+      no-phone:
+        description: For customers - no mobile number
+        text: |
+          Your Name
+          Example Co
+      # long HTML signatures can live in files next to this config:
+      # fancy:
+      #   html_file: signatures/fancy.html
+
+  work:
+    email: you@company.com
+    name: Your Name
+    password_env: GOMAIL_WORK_PASSWORD
+    # imap: {host: imap.gmail.com, port: 993}   # defaults
+    # smtp: {host: smtp.gmail.com, port: 465}   # defaults (587 uses STARTTLS)
