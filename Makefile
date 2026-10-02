@@ -17,7 +17,7 @@ install:
 # Link skills/gomail into the shared Agent Skills directory (~/.agents/skills)
 # and from there into each agent's own skills directory that exists.
 SKILL_HOME ?= $(HOME)/.agents/skills
-AGENT_SKILL_DIRS := $(HOME)/.claude/skills $(HOME)/.codex/skills $(HOME)/.gemini/skills \
+AGENT_SKILL_DIRS := $(HOME)/.claude/skills $(HOME)/.claude-work/skills $(HOME)/.codex/skills $(HOME)/.gemini/skills \
 	$(HOME)/.cursor/skills $(HOME)/.config/opencode/skills $(HOME)/.factory/skills
 
 install-skill:
