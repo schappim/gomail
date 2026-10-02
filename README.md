@@ -21,6 +21,18 @@ Gmail's own hex ids, the same ones the Gmail web UI uses.
 
 ## Install
 
+On Linux or macOS, x86_64 or ARM64, with the install script. It downloads
+the right static binary from the latest release, checks its SHA-256, and
+installs it into `~/.local/bin` (or `/usr/local/bin` when run as root):
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/schappim/gomail/main/install.sh | bash
+```
+
+Add options after `bash -s --`: `--dir DIR`, `--version 0.1.0`, or `--skill`
+to also install the AI-agent skill (see below), e.g.
+`curl -fsSL https://raw.githubusercontent.com/schappim/gomail/main/install.sh | bash -s -- --skill`.
+
 With Homebrew (macOS or Linux):
 
 ```sh
@@ -35,7 +47,9 @@ make install            # static binary in ~/.local/bin/gomail
 make dist               # cross-compiled binaries for macOS, Linux and Windows in dist/
 ```
 
-The binary is self-contained, with no runtime dependencies.
+The binary is self-contained, with no runtime dependencies. Prebuilt
+binaries for Linux (x86_64, ARM64), macOS (Intel, Apple Silicon) and Windows
+are attached to each [release](https://github.com/schappim/gomail/releases).
 
 ## Set up an account
 

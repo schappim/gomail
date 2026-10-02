@@ -33,7 +33,9 @@ test:
 vet:
 	go vet ./...
 
-# Static, self-contained binaries for every platform in dist/.
+# Static, self-contained binaries for every platform in dist/, plus the
+# SHA256SUMS that install.sh verifies downloads against. Upload all of dist/
+# to the GitHub release.
 dist:
 	@mkdir -p dist
 	@for p in $(PLATFORMS); do \
@@ -42,6 +44,7 @@ dist:
 		CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath -ldflags "$(LDFLAGS)" \
 			-o dist/$(BINARY)-$$os-$$arch$$ext ./cmd/gomail || exit 1; \
 	done
+	cd dist && shasum -a 256 $(BINARY)-* > SHA256SUMS
 
 clean:
 	rm -rf bin dist

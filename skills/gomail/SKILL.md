@@ -6,7 +6,7 @@ compatibility: Needs the gomail CLI on PATH (single static binary for macOS, Lin
 
 # gomail
 
-`gomail` is a single Go binary (`brew install schappim/gomail/gomail`, or `make install` from source into `~/.local/bin`; docs at https://github.com/schappim/gomail) that talks to the user's Gmail accounts over IMAP/SMTP. These instructions work for any agent that can run shell commands. Every command accepts `--json`; use it whenever you parse output. Errors go to stderr (with `--json`, to stdout as `{"error": "..."}`) with exit code 1 (runtime) or 2 (bad usage). `gomail <command> --help` documents every flag.
+`gomail` is a single Go binary (install with `brew install schappim/gomail/gomail`, or on Linux/macOS `curl -fsSL https://raw.githubusercontent.com/schappim/gomail/main/install.sh | bash`; docs at https://github.com/schappim/gomail) that talks to the user's Gmail accounts over IMAP/SMTP. These instructions work for any agent that can run shell commands. Every command accepts `--json`; use it whenever you parse output. Errors go to stderr (with `--json`, to stdout as `{"error": "..."}`) with exit code 1 (runtime) or 2 (bad usage). `gomail <command> --help` documents every flag.
 
 ## Accounts (profiles) and signatures
 
