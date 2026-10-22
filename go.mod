@@ -1,6 +1,6 @@
 module gomail
 
-go 1.27.1
+go 1.27.3
 
 require (
 	github.com/emersion/go-imap v1.2.1
