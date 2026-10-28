@@ -111,6 +111,7 @@ Every command accepts --json for machine-readable output.`,
 		a.modifyCmd(),
 		a.archiveCmd(),
 		a.trashCmd(),
+		a.mcpCmd(version),
 	)
 	return root
 }

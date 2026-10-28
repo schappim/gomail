@@ -220,6 +220,31 @@ non-zero exit code (1 for runtime errors, 2 for usage errors). HTML bodies and
 full header lists are left out of message JSON unless `--html` / `--headers`
 is given (`has_html` tells you whether there is one).
 
+### MCP server
+
+`gomail mcp` serves gomail as a [Model Context Protocol](https://modelcontextprotocol.io)
+server over stdio, for AI apps that can't run gomail themselves — for example
+Claude Desktop, whose own shell is a Linux sandbox without your config or
+IMAP access. The server runs on the host, with this machine's config and
+network. Add it to `claude_desktop_config.json` and restart the app:
+
+```json
+{
+  "mcpServers": {
+    "gomail": { "command": "/opt/homebrew/bin/gomail", "args": ["mcp"] }
+  }
+}
+```
+
+Use the full path to the binary (`command -v gomail`); desktop apps don't
+see your shell's `PATH`. Add `"--config", "/path/to/config.yaml"` after
+`"mcp"` to expose a config with only some accounts.
+
+Tools: `profiles`, `labels`, `list`, `search`, `read`, `thread`,
+`attachments`, `draft_list`, `draft_create`, `reply_draft`, `forward_draft`.
+Each takes an optional `profile`. Nothing the server exposes sends mail:
+replies and forwards are saved as drafts to review and send yourself.
+
 ## Notes
 
 - Reading never marks messages as read (use `--mark-read` or `modify --read`).
